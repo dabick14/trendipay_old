@@ -98,11 +98,44 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
 
         case 4:
             if ($user_dials[1] == 1) {
-                $phoneNumber = $user_dials[4];
-                echo $phoneNumber;
-
+                //TODO run phone number validation (create external function)
+                $phoneNumber = $user_dials[3];
+                $msg = "Enter Amount";
+                $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+                //echo  "PhoneNumber. ".$phoneNumber;
+                echo json_encode($resp);
+                $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
             }
+
+            break;
+
+        case 5:
+            //TODO run extra if branch to cater for incorrect phone number
+            if ($user_dials[1] == 1) {
+                //TODO run fetchPayments option (create external function)
+                $phoneNumber = $user_dials[4];
+                $msg = "Please select your payment option\n1.MTN\n2.Vodafone\n3.AirtelTigo\n4.G-Money";
+                $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+                echo json_encode($resp);
+                $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+            }
+
+            break;
+
+        case 6:
+            //TODO run charge API
+            //use callback success or fail to indicate whether person will receive push
+            $msg = "Thank you. you'll receive a push";
+            $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+            echo json_encode($resp);
+            $_SESSION[$id] = $_SESSION[$id] . "#*#";
+            session_destroy();
+
+            break;
+
+
 
 
     }
@@ -111,7 +144,7 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
 
 else {
 
-    //<!--To reinitial session variable in case the use cancelled initial screen-- >
+    //<!--To reinitialize session variable in case the use cancelled initial screen-- >
     if (isset($_SESSION[$id]) and $msgtype == true) {
         session_unset();
     }
@@ -132,4 +165,3 @@ else {
 
 header('Content-type: application/json');
 
-?>
