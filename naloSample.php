@@ -40,10 +40,73 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
     $_SESSION[$id] = $_SESSION[$id] . $user_data;
     $user_dials = preg_split("/\#\*\#/",
         $_SESSION[$id]);
-    $msg = "Hello " . $user_dials[1] . ", Your initial dial was " . $user_dials[0] . "\nInputs were successfully stored and passed on to this screen.\nHappy Coding :)";
-    $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => false);
-    echo json_encode($resp);
-    session_destroy();
+    print_r($user_dials);
+    //determine which level of the menu user is at
+
+    $level = count($user_dials);
+    echo $level;
+
+    switch ($level) {
+
+        case 2:
+            switch ($user_dials[1]) {
+                case 1:
+                    $msg = "1.MTN\n2.Vodafone\n3.AirtelTigo\n4.Glo";
+                    $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+                    echo json_encode($resp);
+                    $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                    //session_destroy();
+                    break;
+                case 2:
+                    $msg = "Hello1 " . $user_dials[1] . ", Your initial dial was " . $user_dials[0] . "\nInputs were successfully stored and passed on to this screen.\nHappy Coding :)";
+                    $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+                    echo json_encode($resp);
+                    session_destroy();
+                    break;
+                case 3:
+                    $msg = "Hello3 " . $user_dials[1] . ", Your initial dial was " . $user_dials[0] . "\nInputs were successfully stored and passed on to this screen.\nHappy Coding :)";
+                    $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+                    echo json_encode($resp);
+                    session_destroy();
+                    break;
+                case 4:
+                    $msg = "Hello " . $user_dials[1] . ", Your initial dial was " . $user_dials[0] . "\nInputs were successfully stored and passed on to this screen.\nHappy Coding :)";
+                    $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+                    echo json_encode($resp);
+                    session_destroy();
+                    break;
+                default:
+                    $msg = "Hello " . $user_dials[1] . ", Your initial dial was " . $user_dials[0] . "\nInputs were successfully stored and passed on to this screen.\nHappy Coding :)";
+                    $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+                    echo json_encode($resp);
+                    session_destroy();
+            }
+
+            break;
+
+        case 3:
+            if ($user_dials[1] == 1) {
+                $msg = "Enter Recipient's Number";
+                $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+                echo json_encode($resp);
+                $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+            }
+
+            break;
+
+        case 4:
+            if ($user_dials[1] == 1) {
+                $phoneNumber = $user_dials[4];
+                echo $phoneNumber;
+
+
+            }
+
+
+    }
+
 } // Initial dial
 
 else {
@@ -62,7 +125,7 @@ else {
 
 // Responds to request. MSG variable will be displayed on the user's screen
 
-    $msg = "Welcome to TrendiPay\nThis is to help you get started with session/data management\nEnter your name please";
+    $msg = "Welcome To TrendiPay\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us";
     $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
     echo json_encode($resp);
  }

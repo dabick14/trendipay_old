@@ -22,4 +22,4 @@ echo strlen($message);
 
 //echo $data['USERID'];
 
-?>
+
