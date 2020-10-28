@@ -1,4 +1,7 @@
 <?php
+
+require_once 'DB.php';
+
 /**
  * This is a sample USSD code with session management.
  * It has only two screens.The purpose is to help developers get started with their USSD application and session management.
@@ -59,10 +62,10 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                     //session_destroy();
                     break;
                 case 2:
-                    $msg = "Hello1 " . $user_dials[1] . ", Your initial dial was " . $user_dials[0] . "\nInputs were successfully stored and passed on to this screen.\nHappy Coding :)";
+                    $msg = "1.MTN\n2.Vodafone\n3.AirtelTigo\n4.Glo\n5.LTE";
                     $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
                     echo json_encode($resp);
-                    session_destroy();
+                    $_SESSION[$id] = $_SESSION[$id] . "#*#";
                     break;
                 case 3:
                     $msg = "Hello3 " . $user_dials[1] . ", Your initial dial was " . $user_dials[0] . "\nInputs were successfully stored and passed on to this screen.\nHappy Coding :)";
@@ -92,6 +95,16 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                 echo json_encode($resp);
                 $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
+            } elseif ($user_dials[1] == 2){
+                $bundleOption = $user_dials[2];
+                $msg = "Data Bundles";
+                //TODO queryBill for data bundles runs here
+                //pagination issues start here
+                //queryBill(serviceID, )
+                $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+                echo json_encode($resp);
+                $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
             }
 
             break;
@@ -106,11 +119,40 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                 echo json_encode($resp);
                 $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
+            } elseif ($user_dials[1] == 2) {
+                $msg = "Enter Recipient's Number";
+                $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+                echo json_encode($resp);
+                $_SESSION[$id] = $_SESSION[$id] . "#*#";
             }
 
             break;
 
+
         case 5:
+            if ($user_dials[1] == 1) {
+                //confirm amount
+
+                $phoneNumber = $user_dials[3];
+                $amount = $user_dials[4];
+                $msg = "You are purchasing GHC".$amount." for".$phoneNumber.". Please confirm\1. Yes\n 2. No" ;
+                $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+                echo json_encode($resp);
+                $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+
+            } elseif ($user_dials[1] == 2) {
+                //TODO run fetchPayments option (create external function)
+                $phoneNumber = $user_dials[4];
+                $msg = "Please select your payment option\n1.MTN\n2.Vodafone\n3.AirtelTigo\n4.G-Money";
+                $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+                echo json_encode($resp);
+                $_SESSION[$id] = $_SESSION[$id] . "#*#";
+            }
+            break;
+
+
+        case 6:
             //TODO run extra if branch to cater for incorrect phone number
             if ($user_dials[1] == 1) {
                 //TODO run fetchPayments option (create external function)
@@ -120,22 +162,23 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                 echo json_encode($resp);
                 $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
+            } elseif ($user_dials[1] == 2) {
+                $phoneNumber = $user_dials[3];
+                $amount = $user_dials[4];
+                chargeAPI($ussd_id, $msisdn, $user_data, $phoneNumber, $amount);
             }
 
             break;
 
-        case 6:
-            //TODO run charge API
-            //use callback success or fail to indicate whether person will receive push
-            $msg = "Thank you. you'll receive a push";
-            $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
-            echo json_encode($resp);
-            $_SESSION[$id] = $_SESSION[$id] . "#*#";
-            session_destroy();
+        case 7:
+            $phoneNumber = $user_dials[3];
+            $amount = $user_dials[4];
+            chargeAPI($ussd_id, $msisdn, $user_data, $phoneNumber, $amount);
+            //TODO use callback to indicate success
 
             break;
-
-
+        default:
+            throw new \Exception('Unexpected value');
 
 
     }
@@ -162,6 +205,18 @@ else {
     $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
     echo json_encode($resp);
  }
+
+function chargeAPI($ussd_id, $msisdn, $user_data,  $phoneNumber, $amount) {
+    //TODO run charge API
+    //use callback success or fail to indicate whether person will receive push
+    $msg = "Thank you. you'll receive a push";
+    $resp = array("USERID" => $ussd_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => false);
+    echo json_encode($resp);
+    //$_SESSION[$id] = $_SESSION[$id] . "#*#";
+    session_destroy();
+
+
+}
 
 header('Content-type: application/json');
 
