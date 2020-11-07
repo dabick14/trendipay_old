@@ -1,6 +1,6 @@
 <?php
 
-require_once 'DB.php';
+
 
 /**
  * This is a sample USSD code with session management.
@@ -43,7 +43,7 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
     $_SESSION[$id] = $_SESSION[$id] . $user_data;
     $user_dials = preg_split("/\#\*\#/",
         $_SESSION[$id]);
-    print_r($user_dials);
+    //print_r($user_dials);
     //determine which level of the menu user is at
 
     $level = count($user_dials);

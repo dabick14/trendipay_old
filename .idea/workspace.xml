@@ -19,23 +19,32 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d481e704-4fb1-4ca0-bed6-4ba0e11aef88" name="Default Changelist" comment="Finished flow through for Airtime">
-      <change afterPath="$PROJECT_DIR$/DB.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dbconfig.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navigation.php" afterDir="false" />
+    <list default="true" id="d481e704-4fb1-4ca0-bed6-4ba0e11aef88" name="Default Changelist" comment="Started new navigation.php page.&#10;DB Connections working.">
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/StaticValues.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/trendiPay.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/trendiPay.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/DB.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/naloSample.php" beforeDir="false" afterPath="$PROJECT_DIR$/naloSample.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/navigation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/apache/log4php" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
   </component>
   <component name="ProjectId" id="1j5zIG2c4aOEG2daXttbBjcMUyL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -70,7 +79,9 @@
       <workItem from="1603108660673" duration="6083000" />
       <workItem from="1603187131954" duration="6852000" />
       <workItem from="1603206219385" duration="9055000" />
-      <workItem from="1603537311838" duration="9345000" />
+      <workItem from="1603537311838" duration="11878000" />
+      <workItem from="1604415194189" duration="17316000" />
+      <workItem from="1604676760858" duration="857000" />
     </task>
     <task id="LOCAL-00001" summary="Working through user path for option 1 Airtime">
       <created>1603206109037</created>
@@ -86,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603210375474</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Started new navigation.php page.&#10;DB Connections working.">
+      <created>1603884495642</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603884495642</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,7 +125,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Working through user path for option 1 Airtime" />
     <MESSAGE value="Finished flow through for Airtime" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished flow through for Airtime" />
+    <MESSAGE value="Started new navigation.php page.&#10;DB Connections working." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started new navigation.php page.&#10;DB Connections working." />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="115" width="800" height="717" key="#Intentions" timestamp="1603380151241">
@@ -126,22 +145,22 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="467" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1603804102698" />
-    <state x="539" y="380" key="NewPhpFileDialog" timestamp="1603815390014">
+    <state x="539" y="380" key="NewPhpFileDialog" timestamp="1604574688797">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1603815390014" />
+    <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1604574688797" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1603108668228">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1603108668228" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1603210389488">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1603884504260">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1603210389488" />
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603210328705">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1603884504260" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604331269508">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1603210328705" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1604331269507" />
     <state x="442" y="204" width="651" height="492" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1603804842224">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
