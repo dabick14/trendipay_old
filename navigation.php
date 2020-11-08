@@ -2,7 +2,7 @@
 
 require_once 'DB.php';
 include 'StaticValues.php';
-include('Logger.php');
+include './logger/Logger.php';
 $logger = Logger::getLogger("main");
 $logger->info("This is an informational message.");
 $logger->warn("I'm not feeling so good...");

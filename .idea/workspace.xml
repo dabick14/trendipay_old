@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d481e704-4fb1-4ca0-bed6-4ba0e11aef88" name="Default Changelist" comment="Started new navigation.php page.&#10;DB Connections working.">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StaticValues.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/trendiPay.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/trendiPay.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/DB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/naloSample.php" beforeDir="false" afterPath="$PROJECT_DIR$/naloSample.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/navigation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +33,12 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -81,7 +82,7 @@
       <workItem from="1603206219385" duration="9055000" />
       <workItem from="1603537311838" duration="11878000" />
       <workItem from="1604415194189" duration="17316000" />
-      <workItem from="1604676760858" duration="857000" />
+      <workItem from="1604676760858" duration="1695000" />
     </task>
     <task id="LOCAL-00001" summary="Working through user path for option 1 Airtime">
       <created>1603206109037</created>
@@ -104,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603884495642</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Started new navigation.php page.&#10;DB Connections working.">
+      <created>1604711362030</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604711362030</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,14 +161,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1603108668228" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1603884504260">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1604711375559">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1603884504260" />
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604331269508">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1604711375559" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604711344193">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1604331269507" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1604711344193" />
     <state x="442" y="204" width="651" height="492" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1603804842224">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
