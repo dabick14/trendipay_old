@@ -1,11 +1,11 @@
 <?php
 
-require_once 'DB.php';
+require_once './dbconfig/DB.php';
 include 'StaticValues.php';
 include './logger/Logger.php';
-$logger = Logger::getLogger("main");
-$logger->info("This is an informational message.");
-$logger->warn("I'm not feeling so good...");
+Logger::configure('config.xml');
+$logger = Logger::getLogger("Foo");
+
 
 //<!--read incoming data-- >
 
@@ -14,6 +14,7 @@ $request = file_get_contents("php://input");
 //<!--convert the json object($request) to a PHP object.-->
 
 $data = json_decode($request, true);
+$logger->info($request);
 
 
 
@@ -66,9 +67,12 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
             case 1:
             switch ($choice){
                 case 1:
-                    $msg = "Select a network provider\n";
-                    $msg .= "1.MTN\n2.Vodafone\n3.AirtelTigo\n4.Glo".$back;
+                    $msg = $static::$AIRTIME;
+                    print_r($msg);
+                    //$msg = "Select a network provider\n";
+                    //$msg .= "1.MTN\n2.Vodafone\n3.AirtelTigo\n4.Glo".$back;
                     echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
                     $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
                     //promote level
@@ -83,7 +87,7 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                 case 2:
                     $msg = "Select a Data Bundle\n";
                     $msg .= "1.MTN\n2.Vodafone\n3.AirtelTigo\n4.Glo\n5.LTE".$back;
-                    trueResponse($ussd_id, $msisdn, $user_data, $msg);
+                    echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
                     $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
                     //promote level
@@ -94,7 +98,7 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                     //TODO push the values into static arrays?
                     $msg = "Select a Bill to Pay\n";
                     $msg .= "1.SunPower\n2.ECG\n3.NedCo\n4.DSTV/GOTv\n5.Water".$back;
-                    trueResponse($ussd_id, $msisdn, $user_data, $msg);
+                    echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
                     $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
                     //promote level
@@ -106,7 +110,7 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
 
                     $msg = "Merchants\n";
                     $msg .= "1.Airlines\n2.Other Merchants\n".$back;
-                    trueResponse($ussd_id, $msisdn, $user_data, $msg);
+                    echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
                     $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
                     //promote level
@@ -118,7 +122,7 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
 
                     $msg = "Contact Us\n";
                     $msg .= "Email: contact@broadspectrumltd.com\nWebsite: www.broadspectrumltd.com\n".$back;
-                    trueResponse($ussd_id, $msisdn, $user_data, $msg);
+                    echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
                     $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
                     //promote level
@@ -138,13 +142,27 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
             break;
 
             case 2:
+
+                $firstChoice = $_SESSION['choice'][0];
+                if($firstChoice == 1) {
                 switch ($choice) {
 
                     case 1:
                     case 2:
                     case 3:
                     case 4:
-                        
+                        $msg = "Enter Recipient's Number";
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        //promote level
+                        $level = $static::$LEVEL_THREE;
+                        $sth->updateLevel($id, $level);
+
+                        array_push($choiceArray, $choice);
+                        $_SESSION['choice'] = $choiceArray;
+                        break;;
+
 
 
                     case 00: //back
@@ -161,6 +179,100 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
 
                         }
 
+
+                }
+                    } elseif ($firstChoice == 2 /*data bundles*/) {
+
+                    $msg = "Choose Bundle";
+
+                    switch ($choice) {
+
+
+                        case 1:
+                            //TODO fetch bundle options here
+                            $msg .= "Bundle Options - MTN";
+                            trueResponse($ussd_id, $msisdn, $user_data, $msg);
+                            $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                            //promote level
+                            $level = $static::$LEVEL_THREE;
+                            $sth->updateLevel($id, $level);
+
+                            array_push($choiceArray, $choice);
+                            $_SESSION['choice'] = $choiceArray;
+                            break;;
+
+                        case 2:
+                            //TODO fetch bundle options here
+                            $msg .= "Bundle Options - Vodafone";
+                            trueResponse($ussd_id, $msisdn, $user_data, $msg);
+                            $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                            //promote level
+                            $level = $static::$LEVEL_THREE;
+                            $sth->updateLevel($id, $level);
+
+                            array_push($choiceArray, $choice);
+                            $_SESSION['choice'] = $choiceArray;
+                            break;;
+                        case 3:
+                            //TODO fetch bundle options here
+                            $msg .= "Bundle Options - AirtelTigo";
+                            trueResponse($ussd_id, $msisdn, $user_data, $msg);
+                            $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                            //promote level
+                            $level = $static::$LEVEL_THREE;
+                            $sth->updateLevel($id, $level);
+
+                            array_push($choiceArray, $choice);
+                            $_SESSION['choice'] = $choiceArray;
+                            break;;
+                        case 4:
+                            //TODO fetch bundle options here
+                            $msg .= "Bundle Options - GLO";
+                            trueResponse($ussd_id, $msisdn, $user_data, $msg);
+                            $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                            //promote level
+                            $level = $static::$LEVEL_THREE;
+                            $sth->updateLevel($id, $level);
+
+                            array_push($choiceArray, $choice);
+                            $_SESSION['choice'] = $choiceArray;
+                            break;
+                        case 5:
+                            //TODO fetch bundle options here
+                            $msg .= "Bundle Options - LTE";
+                            trueResponse($ussd_id, $msisdn, $user_data, $msg);
+                            $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                            //promote level
+                            $level = $static::$LEVEL_THREE;
+                            $sth->updateLevel($id, $level);
+
+                            array_push($choiceArray, $choice);
+                            $_SESSION['choice'] = $choiceArray;
+                            break;;
+
+
+
+                        case 00: //back
+                            $previousChoice = $_SESSION['choice'][0];
+                            if ($previousChoice == 1 || $previousChoice == 2 || $previousChoice == 3 || $previousChoice == 4 || $previousChoice == 5) {
+
+                                $msg = "Welcome To TrendiPay\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us";
+                                echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+                                $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                                //demote level
+                                $level = $static::$LEVEL_ONE;
+                                $sth->updateLevel($id, $level);
+
+                            }
+
+
+                    }
 
                 }
                 break;
@@ -228,12 +340,17 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
 
 function trueResponse($user_id, $msisdn, $user_data, $msg){
     $resp = array("USERID" => $user_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => true);
+    $logger = Logger::getLogger("Foo");
+    $logger->info($resp);
     return json_encode($resp);
 }
 
 function falseResponse($user_id, $msisdn, $user_data, $msg){
     $resp = array("USERID" => $user_id, "MSISDN" => $msisdn, "USERDATA" => $user_data, "MSG" => $msg, "MSGTYPE" => false);
-    echo json_encode($resp);
+    $logger = Logger::getLogger("Foo");
+    $logger->info($resp);
+    return json_encode($resp);
 }
+
 
 
