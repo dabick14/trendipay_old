@@ -1,39 +1,51 @@
 <?php
 
-include './logger/Logger.php';
-Logger::configure('config.xml');
+include_once './logger/Logger.php';
+require_once "dbconfig.php";
+
+Logger::getLogger('config.xml');
+
 
 
 class DB {
 
-    private Logger $logger;
+    /**
+     * @var null
+     */
+    private static $instance = null;
+    public  $logger;
+    public $value;
 
    public function __construct () {
        $this->logger = Logger::getLogger(__CLASS__);
+       $this->value = new Values();
    }
 
 
-    private static  $instance = null;
 
 
-    public static function get()
+
+
+    public function get()
     {
-        require_once "dbconfig.php";
-        $value = new Values();
+        //require_once "dbconfig.php";
+        //$value = new Values();
         //$value->dbName;
 
+        $this->value;
 
-        $dsn = 'mysql:host='.$value->host.';dbname='.$value->dbName.';';
+        $dsn = 'mysql:host='.$this->value->host.';dbname='.$this->value->dbName.';';
 
         if (self::$instance == null) {
             try {
-                self::$instance = new PDO($dsn, $value->user, $value->password);
+                self::$instance = new PDO($dsn, $this->value->user, $this->value->password);
                 self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //if (self::$instance){
                     //echo "working";
                 //}
             } catch (PDOException $e) {
                 // Handle this properly
+                $this->logger->info($e->getMessage());
                 echo "Error: " . $e->getMessage();
             }
         }

@@ -2,7 +2,7 @@
 
 require_once './dbconfig/DB.php';
 include 'StaticValues.php';
-include './logger/Logger.php';
+include_once './logger/Logger.php';
 Logger::configure('config.xml');
 $logger = Logger::getLogger("Foo");
 
@@ -31,16 +31,14 @@ $msgtype = $data['MSGTYPE'];
 $id = session_id();
 
 $sth = new DB();
-$static = new StaticValues();
+
+
 $level = 0;
-
-//$sql = "INSERT into session_levels (sessionID, phoneNumber, level) VALUES ('$id', '$msisdn', '$level')";
-//$sth->insertLevel($id, $msisdn, $level);
-
+$static = new StaticValues();
 
 //terminators
 $back = "\n\n00.Back";
-
+$choiceArray = array();
 
 
 
@@ -50,89 +48,88 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
         $_SESSION[$id]);
 
 
+    print_r($user_dials);
+
+    $choice = $user_data;
+
     $queryResult = $sth->queryLevel($id);
     $level = $queryResult['level'];
     //print_r($queryResult);
 
 
-    $choiceArray = array();
-    $choice = $user_data;
-    //array_push($choiceArray, $choice);
-
-   // $_SESSION['choice'] = $choiceArray;
+    $firstChoice = $user_dials[1];
 
 
+
+
+    switch ($firstChoice) {
+        case 1:
+            $flow = $static::$AIRTIME;
+            echo "1";
+            break;
+        case 2:
+            $flow = $static::$BUNDLE;
+            echo "2";
+            break;
+        case 3:
+            $flow = $static::$BILL_PAYMENT;
+            echo "3";
+            break;
+        case 4:
+            $flow = $static::$MERCHANTS;
+            echo "4";
+            break;
+        case 5:
+            $flow = $static::$CONTACT;
+            echo "5";
+            break;
+    }
+
+
+
+
+//switch levels
 
     switch ($level){
+
+        //level 1
             case 1:
             switch ($choice){
                 case 1:
-                    $msg = $static::$AIRTIME;
-                    print_r($msg);
-                    //$msg = "Select a network provider\n";
-                    //$msg .= "1.MTN\n2.Vodafone\n3.AirtelTigo\n4.Glo".$back;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+
+                    $msg = $flow[$level+1];
                     echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
 
+                    //session id update
                     $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
+                if (isset($flow[$level+2])){
                     //promote level
                     $level = $static::$LEVEL_TWO;
                     $sth->updateLevel($id, $level);
 
-                    array_push($choiceArray, $choice);
-                    $_SESSION['choice'] = $choiceArray;
+                }elseif (!isset($flow[$level+2])) {
+                    $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                    $sth->updateLevel($id, $level);
+                }
 
                     //session_destroy();
                     break;
-                case 2:
-                    $msg = "Select a Data Bundle\n";
-                    $msg .= "1.MTN\n2.Vodafone\n3.AirtelTigo\n4.Glo\n5.LTE".$back;
+
+                case 99:
+                    $msg = $flow[$level-1];
                     echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                    //session id update
                     $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
-                    //promote level
+                    //demote level
                     $level = $static::$LEVEL_TWO;
                     $sth->updateLevel($id, $level);
-                    break;
-                case 3:
-                    //TODO push the values into static arrays?
-                    $msg = "Select a Bill to Pay\n";
-                    $msg .= "1.SunPower\n2.ECG\n3.NedCo\n4.DSTV/GOTv\n5.Water".$back;
-                    echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
-                    $_SESSION[$id] = $_SESSION[$id] . "#*#";
-
-                    //promote level
-                    $level = $static::$LEVEL_TWO;
-                    $sth->updateLevel($id, $level);
-                    break;
-
-                case 4:
-
-                    $msg = "Merchants\n";
-                    $msg .= "1.Airlines\n2.Other Merchants\n".$back;
-                    echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
-                    $_SESSION[$id] = $_SESSION[$id] . "#*#";
-
-                    //promote level
-                    $level = $static::$LEVEL_TWO;
-                    $sth->updateLevel($id, $level);
-                    break;
-
-                case 5:
-
-                    $msg = "Contact Us\n";
-                    $msg .= "Email: contact@broadspectrumltd.com\nWebsite: www.broadspectrumltd.com\n".$back;
-                    echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
-                    $_SESSION[$id] = $_SESSION[$id] . "#*#";
-
-                    //promote level
-                    //$level = $static::$LEVEL_TWO;
-                    //$sth->updateLevel($id, $level);
-                    break;
-
-
-                case 00:
-                    print_r($_SESSION['choice']);
                     break;
 
                 default:
@@ -142,143 +139,105 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
             break;
 
             case 2:
-
-                $firstChoice = $_SESSION['choice'][0];
-                if($firstChoice == 1) {
                 switch ($choice) {
 
                     case 1:
                     case 2:
                     case 3:
                     case 4:
-                        $msg = "Enter Recipient's Number";
+                        $msg = $flow[$level+1];
                         echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
                         $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
+                    if (isset($flow[$level+2])){
                         //promote level
                         $level = $static::$LEVEL_THREE;
                         $sth->updateLevel($id, $level);
 
-                        array_push($choiceArray, $choice);
-                        $_SESSION['choice'] = $choiceArray;
-                        break;;
-
-
-
-                    case 00: //back
-                        $previousChoice = $_SESSION['choice'][0];
-                        if ($previousChoice == 1 || $previousChoice == 2 || $previousChoice == 3 || $previousChoice == 4 || $previousChoice == 5) {
-
-                            $msg = "Welcome To TrendiPay\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us";
-                            echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
-                            $_SESSION[$id] = $_SESSION[$id] . "#*#";
-
-                            //demote level
-                            $level = $static::$LEVEL_ONE;
-                            $sth->updateLevel($id, $level);
-
-                        }
-
-
-                }
-                    } elseif ($firstChoice == 2 /*data bundles*/) {
-
-                    $msg = "Choose Bundle";
-
-                    switch ($choice) {
-
-
-                        case 1:
-                            //TODO fetch bundle options here
-                            $msg .= "Bundle Options - MTN";
-                            trueResponse($ussd_id, $msisdn, $user_data, $msg);
-                            $_SESSION[$id] = $_SESSION[$id] . "#*#";
-
-                            //promote level
-                            $level = $static::$LEVEL_THREE;
-                            $sth->updateLevel($id, $level);
-
-                            array_push($choiceArray, $choice);
-                            $_SESSION['choice'] = $choiceArray;
-                            break;;
-
-                        case 2:
-                            //TODO fetch bundle options here
-                            $msg .= "Bundle Options - Vodafone";
-                            trueResponse($ussd_id, $msisdn, $user_data, $msg);
-                            $_SESSION[$id] = $_SESSION[$id] . "#*#";
-
-                            //promote level
-                            $level = $static::$LEVEL_THREE;
-                            $sth->updateLevel($id, $level);
-
-                            array_push($choiceArray, $choice);
-                            $_SESSION['choice'] = $choiceArray;
-                            break;;
-                        case 3:
-                            //TODO fetch bundle options here
-                            $msg .= "Bundle Options - AirtelTigo";
-                            trueResponse($ussd_id, $msisdn, $user_data, $msg);
-                            $_SESSION[$id] = $_SESSION[$id] . "#*#";
-
-                            //promote level
-                            $level = $static::$LEVEL_THREE;
-                            $sth->updateLevel($id, $level);
-
-                            array_push($choiceArray, $choice);
-                            $_SESSION['choice'] = $choiceArray;
-                            break;;
-                        case 4:
-                            //TODO fetch bundle options here
-                            $msg .= "Bundle Options - GLO";
-                            trueResponse($ussd_id, $msisdn, $user_data, $msg);
-                            $_SESSION[$id] = $_SESSION[$id] . "#*#";
-
-                            //promote level
-                            $level = $static::$LEVEL_THREE;
-                            $sth->updateLevel($id, $level);
-
-                            array_push($choiceArray, $choice);
-                            $_SESSION['choice'] = $choiceArray;
-                            break;
-                        case 5:
-                            //TODO fetch bundle options here
-                            $msg .= "Bundle Options - LTE";
-                            trueResponse($ussd_id, $msisdn, $user_data, $msg);
-                            $_SESSION[$id] = $_SESSION[$id] . "#*#";
-
-                            //promote level
-                            $level = $static::$LEVEL_THREE;
-                            $sth->updateLevel($id, $level);
-
-                            array_push($choiceArray, $choice);
-                            $_SESSION['choice'] = $choiceArray;
-                            break;;
-
-
-
-                        case 00: //back
-                            $previousChoice = $_SESSION['choice'][0];
-                            if ($previousChoice == 1 || $previousChoice == 2 || $previousChoice == 3 || $previousChoice == 4 || $previousChoice == 5) {
-
-                                $msg = "Welcome To TrendiPay\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us";
-                                echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
-                                $_SESSION[$id] = $_SESSION[$id] . "#*#";
-
-                                //demote level
-                                $level = $static::$LEVEL_ONE;
-                                $sth->updateLevel($id, $level);
-
-                            }
-
-
+                    }elseif (!isset($flow[$level+2])) {
+                        $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                        $sth->updateLevel($id, $level);
                     }
 
+                        //session_destroy();
+                        break;
+
+
+
+                    case 99: //back
+                        //$previousChoice = $_SESSION['choice'][0];
+
+                        $msg = $flow[$level-1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        //demote level
+                        $level = $static::$LEVEL_TWO;
+                        $sth->updateLevel($id, $level);
+
+                        //session_destroy();
+                        break;
+
+
+
                 }
+
+
+
                 break;
 
             case 3:
-            echo "This is Level 1.1.1.3";
+                switch ($choice) {
+
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        $msg = $flow[$level+1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        if (isset($flow[$level+2])){
+                            //promote level
+                            $level = $static::$LEVEL_FOUR;
+                            $sth->updateLevel($id, $level);
+
+                        }elseif (!isset($flow[$level+2])) {
+                            $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                            $sth->updateLevel($id, $level);
+                        }
+
+
+
+                        //session_destroy();
+                        break;
+
+
+
+                    case 99: //back
+                        $msg = $flow[$level-1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        //demote level
+                        $level = $static::$LEVEL_THREE;
+                        $sth->updateLevel($id, $level);
+
+                    //session_destroy();
+                         break;
+
+
+
+
+                }
             break;
 
             case 4:
@@ -290,8 +249,26 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                 echo "This is level 1.2 ";
 
 
+        case $static::$LEVEL_CONFIRM_AMOUNT:
+            $amount = $user_data;
+            $msg = "Confirm you have to pay Gh".$amount;
+            trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+            $_SESSION[$amount] = $amount;
+
+            //session id update
+            $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+            //promote level
+            $level = $static::$LEVEL_PAYMENT_OPTIONS;
+            $sth->updateLevel($id, $level);
+
 
             break;
+
+
+        case $static::$LEVEL_PAYMENT_OPTIONS:
+            $msg = $static::$PAYMENT_OPTIONS;
 
             case 00:
 

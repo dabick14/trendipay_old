@@ -19,12 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d481e704-4fb1-4ca0-bed6-4ba0e11aef88" name="Default Changelist" comment="Added Logger Class">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="d481e704-4fb1-4ca0-bed6-4ba0e11aef88" name="Default Changelist" comment="Changing Structure of Project.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/StaticValues.php" beforeDir="false" afterPath="$PROJECT_DIR$/StaticValues.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbconfig.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbconfig/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/dbconfig/DB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbconfig/dbconfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/dbconfig/dbconfig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/myLog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/navigation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +32,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -86,7 +86,9 @@
       <workItem from="1603206219385" duration="9055000" />
       <workItem from="1603537311838" duration="11878000" />
       <workItem from="1604415194189" duration="17316000" />
-      <workItem from="1604676760858" duration="6530000" />
+      <workItem from="1604676760858" duration="10839000" />
+      <workItem from="1604939305572" duration="5795000" />
+      <workItem from="1605137896693" duration="6195000" />
     </task>
     <task id="LOCAL-00001" summary="Working through user path for option 1 Airtime">
       <created>1603206109037</created>
@@ -123,7 +125,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604828656463</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Changing Structure of Project.">
+      <created>1604923928983</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604923928983</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changing Structure of Project.">
+      <created>1604923977237</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1604923977237</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,17 +162,22 @@
     <MESSAGE value="Finished flow through for Airtime" />
     <MESSAGE value="Started new navigation.php page.&#10;DB Connections working." />
     <MESSAGE value="Added Logger Class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Logger Class" />
+    <MESSAGE value="Changing Structure of Project." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changing Structure of Project." />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="115" width="800" height="717" key="#Intentions" timestamp="1603380151241">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" width="800" height="717" key="#Intentions/0.0.1440.900@0.0.1440.900" timestamp="1603380151241" />
-    <state x="523" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1603814440094">
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604924737833">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="523" y="139" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1603814440094" />
+    <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1604924737833" />
+    <state x="523" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1604952808928">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="523" y="139" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1604952808928" />
     <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603206121756">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
