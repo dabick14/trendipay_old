@@ -40,12 +40,8 @@ class StaticValues{
         2 => array("Contact Us\nwebsite:www.broadspectrum.com.gh\nemail:contact@broadspectrumltd.com\n"),
     );
 
-    public static $PAYMENT_OPTIONS = array(
-        1 => "MTN",
-        2 => "Vodafone",
-        3 => "AirtelTigo",
-        4 => "G-Money"
-    );
+    public static $PAYMENT_OPTIONS = "Select a payment option\n1.MTN\n2.Vodafone\n3.AirtelTigo\n4.G-Money";
+
 
     /*public function __construct($CONTACT) {
         $this->CONTACT = $CONTACT;
