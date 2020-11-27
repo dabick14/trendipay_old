@@ -19,13 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d481e704-4fb1-4ca0-bed6-4ba0e11aef88" name="Default Changelist" comment="Changing Structure of Project.">
+    <list default="true" id="d481e704-4fb1-4ca0-bed6-4ba0e11aef88" name="Default Changelist" comment="BAck is working. &#10;Adding mobile money payments">
+      <change afterPath="$PROJECT_DIR$/Controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trendiPay.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StaticValues.php" beforeDir="false" afterPath="$PROJECT_DIR$/StaticValues.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbconfig/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/dbconfig/DB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbconfig/dbconfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/dbconfig/dbconfig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StaticValues.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/StaticValues.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/myLog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/navigation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/pagination.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +71,13 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/classes" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,7 +94,9 @@
       <workItem from="1604415194189" duration="17316000" />
       <workItem from="1604676760858" duration="10839000" />
       <workItem from="1604939305572" duration="5795000" />
-      <workItem from="1605137896693" duration="6195000" />
+      <workItem from="1605137896693" duration="8782000" />
+      <workItem from="1606222670359" duration="4539000" />
+      <workItem from="1606390194652" duration="3176000" />
     </task>
     <task id="LOCAL-00001" summary="Working through user path for option 1 Airtime">
       <created>1603206109037</created>
@@ -139,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604923977237</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="BAck is working. &#10;Adding mobile money payments">
+      <created>1605611077301</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1605611077301</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +178,8 @@
     <MESSAGE value="Started new navigation.php page.&#10;DB Connections working." />
     <MESSAGE value="Added Logger Class" />
     <MESSAGE value="Changing Structure of Project." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changing Structure of Project." />
+    <MESSAGE value="BAck is working. &#10;Adding mobile money payments" />
+    <option name="LAST_COMMIT_MESSAGE" value="BAck is working. &#10;Adding mobile money payments" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="115" width="800" height="717" key="#Intentions" timestamp="1603380151241">
@@ -174,34 +190,34 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1604924737833" />
-    <state x="523" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1604952808928">
+    <state x="523" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1606391461264">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="523" y="139" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1604952808928" />
+    <state x="523" y="139" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1606391461264" />
     <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603206121756">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1603206121756" />
-    <state x="467" y="183" key="NewPhpClassDialog" timestamp="1603804102698">
+    <state x="467" y="183" key="NewPhpClassDialog" timestamp="1606384919546">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="467" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1603804102698" />
-    <state x="539" y="380" key="NewPhpFileDialog" timestamp="1604574688797">
+    <state x="467" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1606384919546" />
+    <state x="539" y="380" key="NewPhpFileDialog" timestamp="1606384655540">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1604574688797" />
-    <state x="221" y="89" key="SettingsEditor" timestamp="1603108668228">
+    <state x="539" y="380" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1606384655540" />
+    <state x="221" y="89" key="SettingsEditor" timestamp="1606383603560">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1603108668228" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1604711375559">
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1606383603560" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1605611089254">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1604711375559" />
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604711344193">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1605611089254" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606384888656">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1604711344193" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1606384888656" />
     <state x="442" y="204" width="651" height="492" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1603804842224">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

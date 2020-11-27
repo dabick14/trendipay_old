@@ -1685,3 +1685,388 @@ INFO - {
     [MSGTYPE] => 1
 )
 
+2020-11-25T13:05:06+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "99",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-11-25T13:05:06+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 99
+    [MSG] => Welcome To TrendiPay
+1. Buy Airtime
+2. Buy Data Bundles
+3. Bill Payment
+4. Merchants
+5. Contact Us
+    [MSGTYPE] => 1
+)
+
+2020-11-25T13:05:15+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "3",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-11-25T13:05:15+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 3
+    [MSG] => Welcome To TrendiPay
+1. Buy Airtime
+2. Buy Data Bundles
+3. Bill Payment
+4. Merchants
+5. Contact Us
+    [MSGTYPE] => 1
+)
+
+2020-11-25T13:05:21+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "3",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-11-25T13:05:21+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 3
+    [MSG] => Array
+        (
+            [0] => Bill Payments
+1.SunPower
+2.ECG
+3.DSTV/GOTv
+4.Water
+        )
+
+    [MSGTYPE] => 1
+)
+
+2020-11-25T13:11:29+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-11-25T13:11:29+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 1
+    [MSG] => Array
+        (
+            [0] => Enter account number
+        )
+
+    [MSGTYPE] => 1
+)
+
+2020-11-25T13:11:39+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "99",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-11-25T13:11:39+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 99
+    [MSG] => Array
+        (
+            [0] => Bill Payments
+1.SunPower
+2.ECG
+3.DSTV/GOTv
+4.Water
+        )
+
+    [MSGTYPE] => 1
+)
+
+2020-11-25T13:11:45+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "99",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-11-25T13:11:45+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 99
+    [MSG] => Array
+        (
+            [0] => Bill Payments
+1.SunPower
+2.ECG
+3.DSTV/GOTv
+4.Water
+        )
+
+    [MSGTYPE] => 1
+)
+
+2020-11-25T13:12:10+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-11-25T13:12:10+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 1
+    [MSG] => Welcome To TrendiPay
+1. Buy Airtime
+2. Buy Data Bundles
+3. Bill Payment
+4. Merchants
+5. Contact Us
+    [MSGTYPE] => 1
+)
+
+2020-11-25T13:14:12+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-11-25T13:14:12+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 1
+    [MSG] => Welcome To TrendiPay
+The Way to Pay!
+1. Buy Airtime
+2. Buy Data Bundles
+3. Bill Payment
+4. Merchants
+5. Contact Us
+    [MSGTYPE] => 1
+)
+
+2020-11-25T13:18:25+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "2",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-11-25T13:18:25+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 2
+    [MSG] => Select a network provider
+1.MTN
+2.Vodafone
+3.AirtelTigo
+4.Glo
+ 5.LTE
+    [MSGTYPE] => 1
+)
+
+2020-11-26T14:02:41+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-11-26T14:03:06+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-11-26T14:03:06+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 1
+    [MSG] => Welcome To TrendiPay
+The Way to Pay!
+1. Buy Airtime
+2. Buy Data Bundles
+3. Bill Payment
+4. Merchants
+5. Contact Us
+    [MSGTYPE] => 1
+)
+
+2020-11-26T14:03:13+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-11-26T14:03:13+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 1
+    [MSG] => Select a network provider
+1.MTN
+2.Vodafone
+3.AirtelTigo
+4.Glo
+    [MSGTYPE] => 1
+)
+
+2020-11-27T11:41:53+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-11-27T11:41:53+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 1
+    [MSG] => Welcome To TrendiPay
+The Way to Pay!
+1. Buy Airtime
+2. Buy Data Bundles
+3. Bill Payment
+4. Merchants
+5. Contact Us
+    [MSGTYPE] => 1
+)
+
+2020-11-27T11:41:59+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-11-27T11:42:52+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-11-27T11:42:52+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 1
+    [MSG] => Welcome To TrendiPay
+The Way to Pay!
+1. Buy Airtime
+2. Buy Data Bundles
+3. Bill Payment
+4. Merchants
+5. Contact Us
+    [MSGTYPE] => 1
+)
+
+2020-11-27T11:43:12+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-11-27T11:43:12+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 1
+    [MSG] => Welcome To TrendiPay
+The Way to Pay!
+1. Buy Airtime
+2. Buy Data Bundles
+3. Bill Payment
+4. Merchants
+5. Contact Us
+    [MSGTYPE] => 1
+)
+
+2020-11-27T11:43:18+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-11-27T11:45:00+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-11-27T11:45:00+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 1
+    [MSG] => Welcome To TrendiPay
+The Way to Pay!
+1. Buy Airtime
+2. Buy Data Bundles
+3. Bill Payment
+4. Merchants
+5. Contact Us
+    [MSGTYPE] => 1
+)
+
+2020-11-27T11:45:05+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-11-27T11:45:05+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 1
+    [MSG] => Select a network provider
+1.MTN
+2.Vodafone
+3.AirtelTigo
+4.Glo
+    [MSGTYPE] => 1
+)
+
+2020-11-27T11:47:15+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-11-27T11:47:15+01:00 [Foo] Array
+(
+    [USERID] => nalotest
+    [MSISDN] => 233243343261
+    [USERDATA] => 1
+    [MSG] => Enter Recipient's Number
+    [MSGTYPE] => 1
+)
+

@@ -1,7 +1,7 @@
 <?php
 
-require_once './dbconfig/DB.php';
-include 'StaticValues.php';
+//require_once './dbconfig/DB.php';
+include 'classes/StaticValues.php';
 include_once './logger/Logger.php';
 Logger::configure('config.xml');
 $logger = Logger::getLogger("Foo");
@@ -53,7 +53,8 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
     $choice = $user_data;
 
     $queryResult = $sth->queryLevel($id);
-    $level = $queryResult['level'];
+    $level = $_SESSION['level'];
+    //$level = $queryResult['level'];
     //print_r($queryResult);
 
 
@@ -94,56 +95,195 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
 
         //level 1
             case 1:
-            switch ($choice){
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
+                switch ($choice){
+                    case 1:
+                        $msg = $flow[$level+1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
 
-                    $msg = $flow[$level+1];
-                    echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
-                    //session id update
-                    $_SESSION[$id] = $_SESSION[$id] . "#*#";
+                        if (isset($flow[$level+2])){
+                            //promote level
+                            $level = $static::$LEVEL_TWO;
+                            updateLevel($level);
 
-                if (isset($flow[$level+2])){
-                    //promote level
-                    $level = $static::$LEVEL_TWO;
-                    $sth->updateLevel($id, $level);
+                        }elseif (!isset($flow[$level+2])) {
+                            $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                            updateLevel($level);
+                        }
 
-                }elseif (!isset($flow[$level+2])) {
-                    $level = $static::$LEVEL_CONFIRM_AMOUNT;
-                    $sth->updateLevel($id, $level);
+                        $_SESSION['option1'] = "airtime";
+
+                        //session_destroy();
+                        break;
+
+                    case 2:
+                        $msg = $flow[$level+1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        if (isset($flow[$level+2])){
+                            //promote level
+                            $level = $static::$LEVEL_TWO;
+                            updateLevel($level);
+
+                        }elseif (!isset($flow[$level+2])) {
+                            $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                            updateLevel($level);
+                        }
+
+                        $_SESSION['option1'] = "bundle";
+
+                        //session_destroy();
+                        break;
+                    case 3:
+                        $msg = $flow[$level+1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        if (isset($flow[$level+2])){
+                            //promote level
+                            $level = $static::$LEVEL_TWO;
+                            $sth->updateLevel($id, $level);
+
+                        }elseif (!isset($flow[$level+2])) {
+                            $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                            $sth->updateLevel($id, $level);
+                        }
+                        $_SESSION['option1'] = "merchants";
+
+                        //session_destroy();
+                        break;
+                    case 4:
+                        $msg = $flow[$level+1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        if (isset($flow[$level+2])){
+                            //promote level
+                            $level = $static::$LEVEL_TWO;
+                            $sth->updateLevel($id, $level);
+
+                        }elseif (!isset($flow[$level+2])) {
+                            $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                            $sth->updateLevel($id, $level);
+                        }
+
+                        $_SESSION['option1'] = "paybill";
+
+                        //session_destroy();
+                        break;
+                    case 5:
+
+                        $msg = $flow[$level+1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                    if (isset($flow[$level+2])){
+                        //promote level
+                        $level = $static::$LEVEL_TWO;
+                        $sth->updateLevel($id, $level);
+
+                    }elseif (!isset($flow[$level+2])) {
+                        $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                        $sth->updateLevel($id, $level);
+                    }
+
+                        //session_destroy();
+                        break;
+
+                    case 99:
+                        $msg = $flow[$level-1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        //demote level
+                        $level = $static::$LEVEL_TWO;
+                        $sth->updateLevel($id, $level);
+                        break;
+
+                    default:
+
+
                 }
+                break;
 
-                    //session_destroy();
-                    break;
-
-                case 99:
-                    $msg = $flow[$level-1];
-                    echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
-
-                    //session id update
-                    $_SESSION[$id] = $_SESSION[$id] . "#*#";
-
-                    //demote level
-                    $level = $static::$LEVEL_TWO;
-                    $sth->updateLevel($id, $level);
-                    break;
-
-                default:
-
-
-            }
-            break;
-
+         //level 2   
             case 2:
                 switch ($choice) {
 
                     case 1:
+                        $msg = $flow[$level+1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        if (isset($flow[$level+2])){
+                            //promote level
+                            $level = $static::$LEVEL_THREE;
+                            updateLevel($level);;
+
+                        }elseif (!isset($flow[$level+2])) {
+                            $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                            updateLevel($level);;
+                        }
+                        $_SESSION['option2'] = "MTN";
+
+                        //session_destroy();
+                        break;
+
                     case 2:
+                        $msg = $flow[$level+1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        if (isset($flow[$level+2])){
+                            //promote level
+                            $level = $static::$LEVEL_THREE;
+                            updateLevel($level);;
+
+                        }elseif (!isset($flow[$level+2])) {
+                            $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                            updateLevel($level);;
+                        }
+
+                        //session_destroy();
+                        break;
+
                     case 3:
+                        $msg = $flow[$level+1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        if (isset($flow[$level+2])){
+                            //promote level
+                            $level = $static::$LEVEL_THREE;
+                            $sth->updateLevel($id, $level);
+
+                        }elseif (!isset($flow[$level+2])) {
+                            $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                            $sth->updateLevel($id, $level);
+                        }
+
+                        //session_destroy();
+                        break;
+
                     case 4:
                         $msg = $flow[$level+1];
                         echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
@@ -194,8 +334,68 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                 switch ($choice) {
 
                     case 1:
+                        $msg = $flow[$level+1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        if (isset($flow[$level+2])){
+                            //promote level
+                            $level = $static::$LEVEL_FOUR;
+                            $sth->updateLevel($id, $level);
+
+                        }elseif (!isset($flow[$level+2])) {
+                            $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                            $sth->updateLevel($id, $level);
+                        }
+
+
+
+                        //session_destroy();
+                        break;
                     case 2:
+                        $msg = $flow[$level+1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        if (isset($flow[$level+2])){
+                            //promote level
+                            $level = $static::$LEVEL_FOUR;
+                            $sth->updateLevel($id, $level);
+
+                        }elseif (!isset($flow[$level+2])) {
+                            $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                            $sth->updateLevel($id, $level);
+                        }
+
+
+
+                        //session_destroy();
+                        break;
                     case 3:
+                        $msg = $flow[$level+1];
+                        echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        if (isset($flow[$level+2])){
+                            //promote level
+                            $level = $static::$LEVEL_FOUR;
+                            $sth->updateLevel($id, $level);
+
+                        }elseif (!isset($flow[$level+2])) {
+                            $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                            $sth->updateLevel($id, $level);
+                        }
+
+
+
+                        //session_destroy();
+                        break;
                     case 4:
                         $msg = $flow[$level+1];
                         echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
@@ -252,7 +452,7 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
         case $static::$LEVEL_CONFIRM_AMOUNT:
             $amount = $user_data;
             $msg = "Confirm you have to pay Gh".$amount;
-            trueResponse($ussd_id, $msisdn, $user_data, $msg);
+            echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
 
             $_SESSION[$amount] = $amount;
 
@@ -268,7 +468,25 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
 
 
         case $static::$LEVEL_PAYMENT_OPTIONS:
+
             $msg = $static::$PAYMENT_OPTIONS;
+            echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
+
+            $level = $static::$LEVEL_SUCCESSFUL_PAYMENT;
+            $sth->updateLevel($id, $level);
+
+            break;
+
+        case $static::$LEVEL_SUCCESSFUL_PAYMENT:
+
+            //TODO call charge API
+            $amount = $_SESSION['amount'];
+            $MSISDN = $msisdn;
+            $user_data = "";
+
+
+
+
 
             case 00:
 
@@ -302,11 +520,11 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
 
 // Responds to request. MSG variable will be displayed on the user's screen
 
-    $msg = "Welcome To TrendiPay\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us";
+    $msg = "Welcome To TrendiPay\nThe Way to Pay!\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us";
     echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
 
     $level = $static::$LEVEL_ONE;
-    $sth->insertLevel($id, $msisdn, $level);
+    updateLevel($level);
 
 
 
@@ -329,5 +547,69 @@ function falseResponse($user_id, $msisdn, $user_data, $msg){
     return json_encode($resp);
 }
 
+function processOptions(){
+    $optionOne = $_SESSION['option1'];
+    $optionTwo = $_SESSION['option2'];
+    if ($optionOne == "airtime" ) {
+        if ($optionTwo == "MTN") {
+            $serviceID = 1;
+            return $serviceID;
+        } elseif($optionTwo == "AIRTEL") {
+            $serviceID = 2;
+            return $serviceID;
+        } elseif ($optionTwo == "Vodafone"){
+            $serviceID = 3;
+            return $serviceID;
+        } elseif ($optionTwo == "GLO"){
+            $serviceID = 4;
+            return $serviceID;
+        } 
+        
+    } elseif ($optionOne == "data") {
+        if ($optionTwo == "MTN") {
+            $serviceID = 5;
+            return $serviceID;
+        } elseif($optionTwo == "AIRTEL") {
+            $serviceID = 6;
+            return $serviceID;
+        } elseif ($optionTwo == "Vodafone"){
+            $serviceID = 7;
+            return $serviceID;
+        } elseif ($optionTwo == "GLO"){
+            $serviceID = 8;
+            return $serviceID;
+        } 
 
+    } elseif ($optionOne = "paybill") {
+        if ($optionTwo == "SunPower") {
+            $serviceID = 9;
+            return $serviceID;
+        } elseif($optionTwo == "ECG") {
+            $serviceID = 10;
+            return $serviceID;
+        } elseif ($optionTwo == "multichoice"){
+            $serviceID = 11;
+            return $serviceID;
+        } elseif ($optionTwo == "Water"){
+            $serviceID = 12;
+            return $serviceID;
+        } 
+
+    }
+
+}
+
+function updateLevel($level){
+    $_SESSION['level'] = $level;
+}
+
+
+
+/*
+SunPower
+ECG
+NedCo
+DSTV/GOTv
+Water
+*/
 
