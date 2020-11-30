@@ -6,16 +6,22 @@ class StaticValues {
     public static $LEVEL_TWO = 2;
     public static $LEVEL_THREE = 3;
     public static $LEVEL_FOUR = 4;
+    public static $LEVEL_FIVE = 5;
+    public static $LEVEL_SIX= 6;
+    public static $LEVEL_SEVEN = 7;
 
 
     public static $LEVEL_CONFIRM_AMOUNT = 10;
-    public static $LEVEL_PAYMENT_OPTIONS = 11;
-    public static $LEVEL_SUCCESSFUL_PAYMENT = 12;
+    public static $LEVEL_PROCESS_CONFIRMATION = 11;
+    public static $LEVEL_PAYMENT_OPTIONS = 12;
+    public static $LEVEL_SUCCESSFUL_PAYMENT = 13;
+    public static $LEVEL_EDIT = 14;
 
 
     public static $AIRTIME = array(
         2 => "Select a network provider\n1.MTN\n2.Vodafone\n3.AirtelTigo\n4.Glo",
-        3 => "Enter Recipient's Number"
+        3 => "Enter Recipient's Number",
+        4 => "Enter Amount"
     );
 
     public static $BUNDLE = array(
@@ -40,7 +46,20 @@ class StaticValues {
         2 => array("Contact Us\nwebsite:www.broadspectrum.com.gh\nemail:contact@broadspectrumltd.com\n"),
     );
 
-    public static $PAYMENT_OPTIONS = "Select a payment option\n1.MTN\n2.Vodafone\n3.AirtelTigo\n4.G-Money";
+    public static $PAYMENT_OPTIONS = array( 
+        1 => "Select a payment option\n1.MTN\n2.Vodafone\n3.AirtelTigo\n4.G-Money",
+        2 => "What would you like to edit?\n1.Mobile Network\n2.Phone Number\n3.Amount"
+    );
+    
+    
+    public static $EDIT_OPTIONS = array( 
+        1 => "Edit network provider\n1.MTN\n2.Vodafone\n3.AirtelTigo\n4.Glo",
+        2 => "Edit Recipient Amount",
+        3 => "Edit Amount"
+    );
+
+    
+
 
 
     /**
