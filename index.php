@@ -109,6 +109,9 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                         //session id update
                         $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
+
+                        
+
                         if (isset($flow[$level+2])){
                             //promote level
                             $level = $static::$LEVEL_TWO;
@@ -179,9 +182,18 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                         //session id update
                         $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
-                        isset()
+                        if (count($flow)>=($level+1)){
+                            //promote level
+                            $level = $static::$LEVEL_TWO;
+                            updateLevel($level);
 
-                        if (isset($flow[$level+2])){
+                        } elseif (count($flow)<=($level+1)){
+
+                            $level = $static::$LEVEL_CONFIRM_AMOUNT;
+                            updateLevel($level);
+                        }
+
+                       /* if (isset($flow[$level+2])){
                             //promote level
                             $level = $static::$LEVEL_TWO;
                             updateLevel($level);
@@ -189,7 +201,7 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                         }elseif (!isset($flow[$level+2])) {
                             $level = $static::$LEVEL_CONFIRM_AMOUNT;
                             updateLevel($level);
-                        }
+                        } */
 
                         $_SESSION['option1'] = "merchant";
 
