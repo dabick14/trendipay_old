@@ -179,7 +179,7 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                         //session id update
                         $_SESSION[$id] = $_SESSION[$id] . "#*#";
 
-                        isset()
+//                        isset()
 
                         if (isset($flow[$level+2])){
                             //promote level
