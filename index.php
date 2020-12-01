@@ -15,6 +15,8 @@ $request = file_get_contents("php://input");
 //<!--convert the json object($request) to a PHP object.-->
 
 $data = json_decode($request, true);
+//
+
 $logger->info($request);
 
 
@@ -168,12 +170,16 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
 
                         //session_destroy();
                         break;
+
+                    //merchants
                     case 4:
                         $msg = $flow[$level+1];
                         echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
 
                         //session id update
                         $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+                        isset()
 
                         if (isset($flow[$level+2])){
                             //promote level
@@ -331,6 +337,13 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                         //session_destroy();
                         break;
 
+                    default:
+                        $msg = $static::$INVALID_INPUT;
+                        echo falseResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
 
 
                 }
@@ -387,6 +400,8 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
 
                         //session_destroy();
                         break;
+
+                    //billpayments
                     case 3:
                         $msg = $flow[$level+1];
                         echo trueResponse($ussd_id, $msisdn, $user_data, $msg);
@@ -446,6 +461,14 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
                     //session_destroy();
                          break;
 
+                    default:
+                        $msg = $static::$INVALID_INPUT;
+                        echo falseResponse($ussd_id, $msisdn, $user_data, $msg);
+
+                        //session id update
+                        $_SESSION[$id] = $_SESSION[$id] . "#*#";
+
+
 
 
 
@@ -500,6 +523,7 @@ if (isset($_SESSION[$id]) and $msgtype == false) {
 
                         //session_destroy();
                         break;
+
                     case 3:
                         $msg = $flow[$level+1];
                         echo trueResponse($ussd_id, $msisdn, $user_data, $msg);

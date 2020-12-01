@@ -6591,3 +6591,143 @@ The Way to Pay!
 "NETWORK" : "MTN"
 }
 2020-12-01T11:38:13+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Welcome To TrendiPay\nThe Way to Pay!\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us","MSGTYPE":true}
+2020-12-01T12:04:55+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "4",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:04:55+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Welcome To TrendiPay\nThe Way to Pay!\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us","MSGTYPE":true}
+2020-12-01T12:05:15+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Welcome To TrendiPay\nThe Way to Pay!\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us","MSGTYPE":true}
+2020-12-01T12:05:33+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Merchants\n1.Airlines\n2.Other Merchants\n","MSGTYPE":true}
+2020-12-01T12:21:46+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Enter account number","MSGTYPE":true}
+2020-12-01T12:26:35+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"1","MSG":"Welcome To TrendiPay\nThe Way to Pay!\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us","MSGTYPE":true}
+2020-12-01T12:26:44+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Merchants\n1.Airlines\n2.Other Merchants\n","MSGTYPE":true}
+2020-12-01T12:29:27+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "4",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:29:27+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Enter account number","MSGTYPE":true}
+2020-12-01T12:29:43+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "99",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:29:47+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "99",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:29:47+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"99","MSG":"Your input is invalid","MSGTYPE":false}
+2020-12-01T12:30:00+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:30:00+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"","MSG":"Welcome To TrendiPay\nThe Way to Pay!\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us","MSGTYPE":true}
+2020-12-01T12:30:06+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "4",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:30:06+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Merchants\n1.Airlines\n2.Other Merchants\n","MSGTYPE":true}
+2020-12-01T12:30:13+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:30:13+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"1","MSG":"Enter account number","MSGTYPE":true}
+2020-12-01T12:30:59+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:30:59+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"1","MSG":"Welcome To TrendiPay\nThe Way to Pay!\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us","MSGTYPE":true}
+2020-12-01T12:31:08+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "4",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:31:08+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Merchants\n1.Airlines\n2.Other Merchants\n","MSGTYPE":true}
+2020-12-01T12:31:13+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "4",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:31:13+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Enter account number","MSGTYPE":true}
+2020-12-01T12:31:33+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "1",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:31:33+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"1","MSG":"Welcome To TrendiPay\nThe Way to Pay!\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us","MSGTYPE":true}
+2020-12-01T12:31:39+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "4",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:31:39+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Merchants\n1.Airlines\n2.Other Merchants\n","MSGTYPE":true}
+2020-12-01T12:31:41+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "4",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:31:41+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Enter account number","MSGTYPE":true}
+2020-12-01T12:38:34+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "4",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:38:34+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Welcome To TrendiPay\nThe Way to Pay!\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us","MSGTYPE":true}
+2020-12-01T12:38:37+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "4",
+"MSGTYPE" : true,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:38:37+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Welcome To TrendiPay\nThe Way to Pay!\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us","MSGTYPE":true}
+2020-12-01T12:38:42+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "4",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:38:42+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Merchants\n1.Airlines\n2.Other Merchants\n","MSGTYPE":true}
+2020-12-01T12:39:06+01:00 [Foo] {
+"USERID" : "nalotest",
+"MSISDN": "233243343261",
+"USERDATA" : "4",
+"MSGTYPE" : false,
+"NETWORK" : "MTN"
+}
+2020-12-01T12:39:06+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Enter account number","MSGTYPE":true}
