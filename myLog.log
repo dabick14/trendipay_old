@@ -6731,3 +6731,5 @@ The Way to Pay!
 "NETWORK" : "MTN"
 }
 2020-12-01T12:39:06+01:00 [Foo] {"USERID":"nalotest","MSISDN":"233243343261","USERDATA":"4","MSG":"Enter account number","MSGTYPE":true}
+2020-12-01T12:36:32+00:00 [Foo] 
+2020-12-01T12:36:32+00:00 [Foo] {"USERID":null,"MSISDN":null,"USERDATA":null,"MSG":"Welcome To TrendiPay\nThe Way to Pay!\n1. Buy Airtime\n2. Buy Data Bundles\n3. Bill Payment\n4. Merchants\n5. Contact Us","MSGTYPE":true}
