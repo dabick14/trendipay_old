@@ -18,6 +18,9 @@ class StaticValues {
     public static $LEVEL_EDIT = 14;
 
 
+    public static $INVALID_INPUT = "Your input is invalid";
+
+
     public static $AIRTIME = array(
         2 => "Select a network provider\n1.MTN\n2.Vodafone\n3.AirtelTigo\n4.Glo",
         3 => "Enter Recipient's Number",
@@ -31,15 +34,15 @@ class StaticValues {
     );
 
     public static $BILL_PAYMENT = array(
-        2 => array("Bill Payments\n1.SunPower\n2.ECG\n3.DSTV/GOTv\n4.Water"),
-        3 => array("Enter account number"),
-        4 => array("")
+        2 => "Bill Payments\n1.SunPower\n2.ECG\n3.DSTV/GOTv\n4.Water",
+        3 => "Enter account number",
+        4 => "Account number verified. Your bill is. Please enter amount to pay "
     );
 
     public static $MERCHANTS = array(
-        2 => array("Merchants\n1.Airlines\n2.Other Merchants\n"),
-        3 => array("Enter account number"),
-        4 => array("")
+        2 => "Merchants\n1.Airlines\n2.Other Merchants\n",
+        3 => "Enter account number",
+        
     );
 
     public static $CONTACT = array(
@@ -48,15 +51,31 @@ class StaticValues {
 
     public static $PAYMENT_OPTIONS = array( 
         1 => "Select a payment option\n1.MTN\n2.Vodafone\n3.AirtelTigo\n4.G-Money",
-        2 => "What would you like to edit?\n1.Mobile Network\n2.Phone Number\n3.Amount"
+        2 => "What would you like to edit?\n1.Mobile Network\n2.Phone Number\n3.Amount",
+        4 => "What would you like to edit?\n1.Bill Choice\n2.Account Number"
     );
     
     
-    public static $EDIT_OPTIONS = array( 
-        1 => "Edit network provider\n1.MTN\n2.Vodafone\n3.AirtelTigo\n4.Glo",
-        2 => "Edit Recipient Amount",
-        3 => "Edit Amount"
-    );
+    public static $EDIT_OPTIONS = array (
+        
+        1 => array(
+            1 => "Edit network provider\n1.MTN\n2.Vodafone\n3.AirtelTigo\n4.Glo",
+            2 => "Edit Recipient Amount",
+            3 => "Edit Amount"
+        ),
+
+        2 => array(
+
+        ),
+
+        3 => array(
+            1 => "Edit Bill Payments\n1.SunPower\n2.ECG\n3.DSTV/GOTv\n4.Water",
+            2 => "Edit account number"
+
+        )
+
+        );
+    
 
     
 

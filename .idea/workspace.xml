@@ -20,13 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d481e704-4fb1-4ca0-bed6-4ba0e11aef88" name="Default Changelist" comment="BAck is working. &#10;Adding mobile money payments">
-      <change afterPath="$PROJECT_DIR$/Controller.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trendiPay.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StaticValues.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/StaticValues.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/StaticValues.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/StaticValues.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/myLog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navigation.php" beforeDir="false" afterPath="$PROJECT_DIR$/navigation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/pagination.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +94,7 @@
       <workItem from="1605137896693" duration="8782000" />
       <workItem from="1606222670359" duration="4539000" />
       <workItem from="1606390194652" duration="3176000" />
+      <workItem from="1606798401727" duration="1352000" />
     </task>
     <task id="LOCAL-00001" summary="Working through user path for option 1 Airtime">
       <created>1603206109037</created>
