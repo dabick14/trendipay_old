@@ -20,7 +20,6 @@ $data = json_decode($request, true);
 $logger->info(json_encode($data));
 
 
-fopen('./logs/info.log', );
 
 
 //print_r(session_id());
